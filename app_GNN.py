@@ -29,9 +29,9 @@ nest_asyncio.apply()
 
 warnings.filterwarnings("ignore", message="pandas only supports SQLAlchemy connectable")
 # Initialize Google Maps client (Replace with your actual API key)
-google_api_key = 'AIzaSyD2njewsOGeV1ZZfo8btxKyhQOHhFWbyvQ'
+google_api_key = 'google_api_key'
 
-weather_api_key = '1e6ee7252fa39fe36eb29b118b465c69'
+weather_api_key = 'weather_api_key'
 gmaps = googlemaps.Client(key=google_api_key)
 base_url = 'https://maps.googleapis.com/maps/api/directions/json'
 
@@ -41,12 +41,12 @@ app.config['DEBUG'] = True
 
 def get_snowflake_connection():
     return snowflake.connector.connect(
-        user='VIDHUPRABHA',
-        password='Vids@1231',
-        account='iwcpjnq-wb90177',
-        warehouse='FACILITY_WH',
-        database='FACILITY_DB',
-        schema='FACILITY_SC'
+        user='user',
+        password='password',
+        account='account',
+        warehouse='WH',
+        database='DB',
+        schema='SC'
     )
 
 selected_city = 'Lake Hiawatha'
