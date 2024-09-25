@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathSync - Route Interface</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mt-4">PathSync - Intelligent Supply Chain Route Optimization</h1>
+        <h4 class="mt-4">Delivery Route Interface</h4>
+
+        <form method="POST" action="/" class="mb-4">
+            <div class="form-group">
+                <label for="citySelect">Select City:</label>
+                <select id="citySelect" name="selected_city" class="form-control">
+                    {% if cities %}
+                        {% for city in cities %}
+                            <option value="{{ city }}" {% if city == selected_city %}selected{% endif %}>{{ city }}</option>
+                        {% endfor %}
+                    {% else %}
+                        <option value="">No city available</option>
+                    {% endif %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="clusterSelect">Select Cluster:</label>
+                <select id="clusterSelect" name="selected_cluster" class="form-control">
+                    {% if clusters %}
+                        {% for option in cluster_options %}
+                            <option value="{{ loop.index0 }}" {% if loop.index0 == selected_cluster_index %}selected{% endif %}>{{ option }}</option>
+                        {% endfor %}
+                    {% else %}
+                        <option value="">No clusters available</option>
+                    {% endif %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+
+
+
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% else %}
+            <ul>
+                {% for addr in addresses %}
+                    <li>{{ addr }}</li>
+                {% endfor %}
+            </ul>   
+            <h5>Nearest Facility Details:</h5>
+    
+            {% if error %}
+                <p>No nearest facility information available.</p>
+            {% else %}
+                <ul>
+                    <li>Address: {{ name }} {{ address }}{% if city %}, {{ city }}{% endif %}{% if state %}, {{ state }}{% endif %}</li>
+                    <li>Coordinates: {{ latitude }}  {{ longitude }}</li>
+                </ul>
+            {% endif %}
+
+            <h5>{{ city }} Customer Addresses:</h5>
+            <ul>
+                {% for cust in cust_details %}
+                    <li>
+                        Address {{ loop.index }}: {{ cust[0] }},
+                        City: {{ cust[1] }},
+                        State: {{ cust[2] }},
+                        Lat: {{ cust[3] }},
+                        Lon: {{ cust[4] }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <h6>--------------------------------------------------------------------------------------------------------------------------------------------------------</h6>
+        <h5>{{ selected_city }} Route Segments</h5>
+        <div class="details">
+            <ul>
+                {% if distances and durations %}
+                    {% for i in range(distances|length) %}
+                        <li>
+                            Destination {{ i + 1 }}: 
+                            Address: {{ cust_details[i][0] }}, City: {{ cust_details[i][1] }}, State: {{ cust_details[i][2] }},
+                            Coordinates: {{ best_path[i][0] }}, {{ best_path[i][1] }} 
+                            Optimized Distance: {{ distances[i] }} miles, 
+                            Optimized Duration: {{ durations[i] }} minutes
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li>No route segments available.</li>
+                {% endif %}
+            </ul>
+        </div>
+
+
+        <h5>Route Optimization Results</h5>
+        <ul>
+            <li><strong>Total Original Distance: {{ original_distance }} mi</strong></li>
+            <li><strong>Total Original Duration: {{ original_duration }} min</strong></li>
+            <li><strong>Total Optimized Distance: {{ optimized_distance }} mi</strong></li>
+            <li><strong>Total Optimized Duration: {{ optimized_duration }} min</strong></li>
+        </ul>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+
+        <h3 class="mt-5">Optimized Route Map:</h3>
+        <!-- Embed map if available -->
+        {% if map_available %}
+            <div id="map" style="height: 500px; width: 100%;">
+                <iframe src="{{ url_for('static', filename=map_path.split('static/')[1]) }}" width="100%" height="500px"></iframe>
+            </div>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+    
