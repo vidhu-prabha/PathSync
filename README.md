@@ -52,7 +52,7 @@ Structured list of steps involved in this project on supply chain route optimiza
 
 **Route Optimization Logic**
 
-**For each cluster of customer addresses:**
+  **For each cluster of customer addresses:**
 
 * Retrieve nearest UPS facility coordinates based on the cluster centroid.
 
@@ -114,7 +114,7 @@ Structured list of steps involved in this project on supply chain route optimiza
 
 * **Estimation Module:** Performs calculations for distances, durations, fuel costs, and savings.
 
-**Visualization Module:** Handles the generation of plots and visual comparisons of results.
+* **Visualization Module:** Handles the generation of plots and visual comparisons of results.
 
 
 
