@@ -8,19 +8,19 @@ from flask import Blueprint
 
 app = Flask(__name__)
 
-google_api_key = 'AIzaSyDLTcEQ-dmI3Kvnq7yXSSUG41VEcXnnVvA'
+google_api_key = 'google_api_key'
 cust_tb = 'CUST_DATA_TB'
 
 route_blueprint = Blueprint('route_blueprint', __name__, url_prefix='/Pathsync/route_optimization')
 
 def get_snowflake_connection():
     return snowflake.connector.connect(
-        user='VIDHUPRABHA',
-        password='Vids@1231',
-        account='iwcpjnq-wb90177',
-        warehouse='FACILITY_WH',
-        database='FACILITY_DB',
-        schema='FACILITY_SC'
+        user='user',
+        password='passowrd',
+        account='account',
+        warehouse='WH',
+        database='DB',
+        schema='SC'
     )
 
 def check_snf_conn(conn):
