@@ -102,7 +102,7 @@ Structured list of steps involved in this project on supply chain route optimiza
 
 * Ensure the application integrates with the Snowflake database and provides route optimization services.
 
-**Modules Overview**
+### **Modules Overview**
 
 * **Data Loading Module:** Handles loading customer and UPS facility data from Snowflake.
 
