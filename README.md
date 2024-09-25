@@ -23,8 +23,6 @@ The primary objective of **PathSync** is to develop a **Graph Neural Network (GN
 
 * **Facilitate Decision-Making:** Support decision-making processes by providing comprehensive reports and visualizations that highlight the benefits of adopting GNN- based route optimization. 
 
-![Alt text](./Users/vidhuprabha/Desktop/untitled folder/Screenshot 2024-09-24 at 8.26.48 PM.png)
-
 
 ## **Project Steps and Modules**
 
