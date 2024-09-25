@@ -1,4 +1,4 @@
-The primary objective of PathSync is to develop a Graph Neural Network (GNN) model to optimize supply chain routing by effectively predicting the most efficient routes for deliveries. This model aims to enhance delivery speed and accuracy while minimizing costs and environmental impact through data-driven decision-making. Specifically, the project aims to achieve the following goals: 
+The primary objective of **PathSync** is to develop a **Graph Neural Network (GNN) model** to optimize supply chain routing by effectively predicting the most efficient routes for deliveries. This model aims to enhance delivery speed and accuracy while minimizing costs and environmental impact through data-driven decision-making. Specifically, the project aims to achieve the following goals: 
 
 **Develop a GNN-based Model:** Create a robust Graph Neural Network model to optimize routing in supply chain management, leveraging facility and customer location data. 
 
