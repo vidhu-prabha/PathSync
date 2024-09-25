@@ -1,3 +1,6 @@
+
+# PathSync: Intelligent Supply Chain Route Optimization using Geospatial Analysis, ML, Graph Neural Network 
+
 The primary objective of **PathSync** is to develop a **Graph Neural Network (GNN) model** to optimize supply chain routing by effectively predicting the most efficient routes for deliveries. This model aims to enhance delivery speed and accuracy while minimizing costs and environmental impact through data-driven decision-making. Specifically, the project aims to achieve the following goals: 
 
 * **Develop a GNN-based Model:** Create a robust Graph Neural Network model to optimize routing in supply chain management, leveraging facility and customer location data. 
@@ -22,7 +25,7 @@ The primary objective of **PathSync** is to develop a **Graph Neural Network (GN
 
 
 
-**Project Steps and Modules**
+## **Project Steps and Modules**
 
 Structured list of steps involved in this project on supply chain route optimization, including the modules and functionalities, this structured approach ensures a comprehensive handling of each aspect of the project, from data acquisition to analysis and reporting.:
 
